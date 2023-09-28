@@ -1,13 +1,17 @@
 {% extends "shop/base.html" %}
 {% block title %}
-    Thanks you
+    Thank you!
 {% endblock title %}
 {% block content %}
-    <h1>Thank you for ordering!</h1>
+    <h1>Thank you for ordering, {{ order.first_name }}!</h1>
     <p>
         Your order has been sucessfuly placed. Your order number is 
-        <stong>{{ order.id }}</strong>.
+        <strong>{{ order.id }}</strong>.
+    </p>
+    <p>
+        A confirmation email with order info has been sent to <strong>{{ order.email }}</strong>.
+    </p>
+    <p class="text-left">
+        <a href="{% url "shop:product_list" %}" class="button">Continue shopping</a>
     </p>
 {% endblock content %}
-
-
