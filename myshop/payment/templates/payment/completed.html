@@ -5,4 +5,7 @@
 {% block content %}
     <h1>Your payment was successful</h1>
     <p>Your payment has been processed successfully.</p>
+    <p class="text-left">
+        <a href="{% url "shop:product_list" %}" class="button">Continue shopping</a>
+    </p>
 {% endblock content %}

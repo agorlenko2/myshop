@@ -49,6 +49,7 @@
     </table>
     <form action="{% url "payment:process" %}" method="post">
         <input type="submit" value="Checkout">
+        <a href="{% url "shop:product_list" %}" class="button">Continue shopping</a>
         {% csrf_token %}
     </form>
 {% endblock content %}
