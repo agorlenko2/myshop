@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
 
 from shop.models import Product
+from coupons.forms import CouponApplyForm
 from .cart import Cart
 from .forms import CartAddProductForm
 
@@ -38,9 +39,12 @@ def cart_detail(request):
                 'override': True
             }
         )
+    coupon_apply_form = CouponApplyForm()
     return render(
         request=request,
         template_name='cart/detail.html',
         context={
-            'cart': cart
-        })
+            'cart': cart,
+            'coupon_apply_form': coupon_apply_form
+        }
+    )
