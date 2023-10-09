@@ -19,5 +19,21 @@
             <input type="submit" value="Add to cart">
         </form>
         {{ product.description|linebreaks }}
+        {% if recommended_products %}
+            <div class="reccomendations">
+                <h3>People who bought this also bought:</h3>
+                {% for rec_product in recommended_products %}
+                    <div class="item">
+                        <a href="{{ rec_product.get_absolute_url }}">
+                            <img src="{% if rec_product.image %} {{ rec_product.image.url }}
+                            {% else %}{% static "img/no_image.png" %} {% endif %}">
+                        </a>
+                        <p>
+                            <a href="{{ rec_product.get_absolute_url }}">{{ rec_product.name }}</a>
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
